@@ -13,7 +13,7 @@ conda activate N2F
 conda install -c pytorch pytorch=1.8.0
 conda install -c conda-forge tifffile=2019.7.26.2
 ```
-If the installs don't work, removing the specific version may fix this
+If the installs don't work, removing the specific version may fix this.
 # Using Noise2Fast on your data
 
 Create a folder in the master directory and put your noisy images into it. Then open a terminal in the master directory and run the following:

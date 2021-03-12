@@ -1,7 +1,7 @@
 # Noise2Fast
 
 # Installation
-If you don't already have anaconda, install it by following instrctions at this link: https://docs.anaconda.com/anaconda/install/.
+If you don't already have anaconda, install it by following instructions at this link: https://docs.anaconda.com/anaconda/install/.
 
 # Using Noise2Fast
 

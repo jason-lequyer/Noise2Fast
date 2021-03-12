@@ -10,10 +10,10 @@ Create a new conda environment and install the required packages:
 ```python
 conda create --name N2F
 conda activate N2F
-conda install -c pytorch pytorch==1.8.0
+conda install -c pytorch pytorch=1.8.0
 conda install -c conda-forge tifffile=2019.7.26.2
 ```
-
+If the installs don't work, removing the specific version may fix this
 # Using Noise2Fast on your data
 
 Create a folder in the master directory and put your noisy images into it. Then open a terminal in the master directory and run the following:
@@ -48,9 +48,16 @@ Which returns the denoised results in a folder named 'Set12_gaussian25_N2F'.
 
 # Calculate accuracy of Noise2Fast
 
-To find the PSNR and SSIM between a folder of denoised results and a folder containing known ground truths (e.g. Set12_gaussian25_N2F and Set12 if you followed above), we need to install some more conda packages:
+To find the PSNR and SSIM between a folder containing denoised results and the corresponding folder containing known ground truths (e.g. Set12_gaussian25_N2F and Set12 if you followed above), we need to install one more conda package:
 
+```python
+conda activate N2F
+conda install -c anaconda scikit-image=0.17.2
 ```
 
+Now we measure accuracy with the code:
+```python
+python compute_psnr_ssim.py Set12_gaussian25 Set12
+```
 
-.
+You can replace 'Set12' and 'Set12_gaussian25 Set12' with any pair of denoised/ground truth folders (order doesn't matter). Average PSNR and SSIM will be returned for the entire set.

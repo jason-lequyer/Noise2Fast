@@ -29,14 +29,12 @@ Where 'XXXXX' is the name of the folder containing images you want denoised. Res
 To run N2F on the noisy confocal images, open a terminal in the master directory and run:
 
 ```python
-conda activate N2F
 python N2F.py Confocal_gaussianpoisson
 ```
 The denoised results will be in the directory 'Confocal_gaussianpoisson_N2F'.
 
 To run N2F on our other datasets we first need to add synthetic gasussian noise. For example to test N2F on Set12 with sigma=25 gaussian noise, we would first: 
 ```python
-conda activate N2F
 python add_gaussian_noise.py Set12 25
 ```
 This will create the folder 'Set12_gaussian25' which we can now denoise:
@@ -47,6 +45,22 @@ python N2F.py Set12_gaussian25
 Which returns the denoised results in a folder named 'Set12_gaussian25_N2F'.
 
 # Calculate accuracy of Noise2Fast
+
+To find the PSNR and SSIM between a folder containing denoised results and the corresponding folder containing known ground truths (e.g. Set12_gaussian25_N2F and Set12 if you followed above), we need to install one more conda package:
+
+```python
+conda activate N2F
+conda install -c anaconda scikit-image=0.17.2
+```
+
+Now we measure accuracy with the code:
+```terminal
+python compute_psnr_ssim.py Set12_gaussian25 Set12
+```
+
+You can replace 'Set12' and 'Set12_gaussian25 Set12' with any pair of denoised/ground truth folders (order doesn't matter). Average PSNR and SSIM will be returned for the entire set.
+
+# Running DIP
 
 To find the PSNR and SSIM between a folder containing denoised results and the corresponding folder containing known ground truths (e.g. Set12_gaussian25_N2F and Set12 if you followed above), we need to install one more conda package:
 

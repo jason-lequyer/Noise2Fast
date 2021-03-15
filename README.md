@@ -55,23 +55,27 @@ conda install -c anaconda scikit-image=0.17.2
 
 Now we measure accuracy with the code:
 ```terminal
-python compute_psnr_ssim.py Set12_gaussian25 Set12
+python compute_psnr_ssim.py Set12_gaussian25_N2F Set12
 ```
 
 You can replace 'Set12' and 'Set12_gaussian25 Set12' with any pair of denoised/ground truth folders (order doesn't matter). Average PSNR and SSIM will be returned for the entire set.
 
-# Running DIP
+# Running compared methods
 
-To find the PSNR and SSIM between a folder containing denoised results and the corresponding folder containing known ground truths (e.g. Set12_gaussian25_N2F and Set12 if you followed above), we need to install one more conda package:
+We can run DIP and Noise2Self in the N2F environment:
 
 ```python
 conda activate N2F
-conda install -c anaconda scikit-image=0.17.2
+python DIP.py Confocal_gaussianpoisson
+python noise2self.py Confocal_gaussianpoisson
 ```
 
-Now we measure accuracy with the code:
+However Self2Self is tensorflow based and requires us to install more conda packages to work:
+
 ```python
-python compute_psnr_ssim.py Set12_gaussian25 Set12
+conda activate N2F
+conda install -c conda-forge tensorflow
+conda install -c conda-forge opencv=4.5.1
+conda install -c anaconda keras=2.3.1
 ```
 
-You can replace 'Set12' and 'Set12_gaussian25 Set12' with any pair of denoised/ground truth folders (order doesn't matter). Average PSNR and SSIM will be returned for the entire set.

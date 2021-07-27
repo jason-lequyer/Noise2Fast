@@ -16,7 +16,7 @@ conda install -c conda-forge tifffile=2019.7.26.2
 If the installs don't work, removing the specific version may fix this.
 # Using Noise2Fast on your data
 
-Create a folder in the master directory (the directory that contains N2F.py) and put your noisy images into it. Then open a terminal in the master directory and run the following:
+Create a folder in the master directory (the directory that contains N2F.py) and put your noisy images into it. Then open anaconda prompt/terminal and run the following:
 
 ```python
 cd <masterdirectoryname>

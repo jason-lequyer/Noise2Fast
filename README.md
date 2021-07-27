@@ -74,7 +74,7 @@ However Self2Self is tensorflow based and requires us to install more conda pack
 
 ```python
 conda activate N2F
-conda install -c conda-forge tensorflow
+conda install -c conda-forge tensorflow=1.14.0
 conda install -c conda-forge opencv=4.5.1
 conda install -c anaconda keras=2.3.1
 ```

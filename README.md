@@ -25,7 +25,7 @@ python N2F.py <noisyfolder>
 ```
 Replacing <masterdirectoryname> with the full path to the directory that contains N2F.py, and replacing <noisyfolder> with the name of the folder containing images you want denoised. Results will be saved to the directory '<noisyolder>_N2F'. Issues may arise if using an image format that is not supported by the tifffile python package, to fix these issues you can open your images in ImageJ and re-save them as .tif (even if they were already .tif, this will convert them to ImageJ .tif).
   
-#Using Noise2Fast on your colour images, stacks and hyperstacks
+# Using Noise2Fast on your colour images, stacks and hyperstacks
 
 To run on anything other than 2D grayscale images, use N2F_4D.py. This supports an arbitrary number of dimensions, as long as the last two dimensions are x and y. For example, here we use it on a 16x6x2x250x250 (tzcxy) image:
   

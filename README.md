@@ -14,7 +14,7 @@ conda install -c pytorch pytorch=1.8.0
 conda install -c conda-forge tifffile=2019.7.26.2
 ```
 If the installs don't work, removing the specific version may fix this.
-# Using Noise2Fast on your data
+# Using Noise2Fast on your 2D grayscale data
 
 Create a folder in the master directory (the directory that contains N2F.py) and put your noisy images into it. Then open anaconda prompt/terminal and run the following:
 
@@ -24,6 +24,17 @@ conda activate N2F
 python N2F.py <noisyfolder>
 ```
 Replacing <masterdirectoryname> with the full path to the directory that contains N2F.py, and replacing <noisyfolder> with the name of the folder containing images you want denoised. Results will be saved to the directory '<noisyolder>_N2F'. Issues may arise if using an image format that is not supported by the tifffile python package, to fix these issues you can open your images in ImageJ and re-save them as .tif (even if they were already .tif, this will convert them to ImageJ .tif).
+  
+#Using Noise2Fast on your colour images, stacks and hyperstacks
+
+To run on anything other than 2D grayscale images, use N2F_4D.py. This supports an arbitrary number of dimensions, as long as the last two dimensions are x and y. For example, here we use it on a 16x6x2x250x250 (tzcxy) image:
+  
+```python
+conda activate N2F
+python N2F_4D.py livecells
+```  
+
+Output is in ImageJ format.
 
 # Using Noise2Fast on provided datasets
 
@@ -64,16 +75,7 @@ python compute_psnr_ssim.py Set12_gaussian25_N2F Set12
 
 You can replace 'Set12' and 'Set12_gaussian25' with any pair of denoised/ground truth folders (order doesn't matter). Average PSNR and SSIM will be returned for the entire set.
   
-# Running on colour images, stacks and hyperstacks
 
-To run on anything other than 2D grayscale images, use N2F_4D.py. This supports an arbitrary number of dimensions, as long as the last two dimensions are x and y. For example, here we use it on a 16x6x2x250x250 (tzcxy) image:
-  
-```python
-conda activate N2F
-python N2F_4D.py livecells
-```  
-
-Output is in ImageJ format.
   
 # Running compared methods
 

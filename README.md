@@ -30,6 +30,7 @@ Replacing <masterdirectoryname> with the full path to the directory that contain
 To run on anything other than 2D grayscale images, use N2F_4D.py. This supports an arbitrary number of dimensions, as long as the last two dimensions are x and y. For example, here we use it on a 16x6x2x250x250 (tzcxy) image:
   
 ```python
+cd <masterdirectoryname>
 conda activate N2F
 python N2F_4D.py livecells
 ```  

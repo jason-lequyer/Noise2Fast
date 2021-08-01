@@ -58,6 +58,8 @@ if __name__ == "__main__":
     for v in range(len(file_list)):
         
         file_name =  file_list[v]
+        if file_name[0] == '.':
+            continue
         print(file_name)
         
         
@@ -67,6 +69,7 @@ if __name__ == "__main__":
             inp = np.swapaxes(inp, -3, -2)
         start_time = time.time()
         ogshape = inp.shape
+
         inp = inp.reshape(-1,ogshape[-2],ogshape[-1])
         out = np.zeros(inp.shape, dtype=np.float32)
         for oz in range(inp.shape[0]):

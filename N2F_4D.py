@@ -62,6 +62,9 @@ if __name__ == "__main__":
         
         
         inp = imread(folder + '/' + file_name)
+        if inp.shape[-1] == 3:
+            inp = np.swapaxes(inp, -2, -1)
+            inp = np.swapaxes(inp, -3, -2)
         start_time = time.time()
         ogshape = inp.shape
         inp = inp.reshape(-1,ogshape[-2],ogshape[-1])

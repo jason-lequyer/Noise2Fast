@@ -17,14 +17,16 @@ if __name__ == "__main__":
     avgss = 0
     for v in range(numberofpoints):
         filename = file_list[v]
-        if filename[-1] == 'f':
-            counter += 1
-            img = imread(GTdir + '/' + filename)
-            GT = imread(noisydir + '/' + filename)
-            ps = psnr(GT,img,data_range = 255)
-            ss = ssim(GT, img, gaussian_weights = True, sigma=1.5, use_sample_covariance=False, data_range = 255)
-            avgps += ps
-            avgss += ss
+        if filename[0] == '.':
+            continue
+
+        counter += 1
+        img = imread(GTdir + '/' + filename)
+        GT = imread(noisydir + '/' + filename)
+        ps = psnr(GT,img,data_range = 255)
+        ss = ssim(GT, img, gaussian_weights = True, sigma=1.5, use_sample_covariance=False, data_range = 255)
+        avgps += ps
+        avgss += ss
     avgps = avgps/counter
     avgss = avgss/counter
     print('PSNR: '+str(avgps))

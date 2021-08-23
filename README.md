@@ -39,10 +39,11 @@ Output is in ImageJ format.
 
 # Using Noise2Fast on provided datasets
 
-To run N2F on the noisy confocal images, open a terminal in the master directory and run:
+To run N2F on the noisy confocal images, open a terminal and run:
 
 ```python
 cd <masterdirectoryname>
+conda activate N2F
 python N2F.py Confocal_gaussianpoisson
 ```
 The denoised results will be in the directory 'Confocal_gaussianpoisson_N2F'.
@@ -50,6 +51,7 @@ The denoised results will be in the directory 'Confocal_gaussianpoisson_N2F'.
 To run N2F on our other datasets we first need to add synthetic gasussian noise. For example to test N2F on Set12 with sigma=25 gaussian noise, we would first: 
 ```python
 cd <masterdirectoryname>
+conda activate N2F
 python add_gaussian_noise.py Set12 25
 ```
 This will create the folder 'Set12_gaussian25' which we can now denoise:

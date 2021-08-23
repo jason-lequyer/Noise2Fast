@@ -52,17 +52,17 @@ if __name__ == "__main__":
             x = torch.sigmoid(self.conv6(x))
             return x
         
-        
-    #load data
     file_list = [f for f in os.listdir(folder)]
     start_time = time.time()
     for v in range(len(file_list)):
         
         file_name =  file_list[v]
         print(file_name)
-        
+        if file_name[0] == '.':
+            continue
         
         img = imread(folder + '/' + file_name)
+        typer = type(img[0,0])
         
         minner = np.amin(img)
         img = img - minner
@@ -193,9 +193,11 @@ if __name__ == "__main__":
         
         H = np.mean(last10, axis=0)
         
-        imwrite(outfolder + '/' + file_name, H)
+        imwrite(outfolder + '/' + file_name, H.astype(typer))
+        print("--- %s seconds ---" % (time.time() - start_time))
+        start_time = time.time()
         
         
         
         torch.cuda.empty_cache()
-    print("--- %s seconds ---" % (time.time() - start_time))
+    

@@ -13,7 +13,7 @@ conda activate N2F
 conda install -c pytorch pytorch
 conda install -c conda-forge tifffile
 ```
-If the installs don't work, removing the specific version may fix this.
+
 # Using Noise2Fast on your 2D grayscale data
 
 Create a folder in the master directory (the directory that contains N2F.py) and put your noisy images into it. Then open anaconda prompt/terminal and run the following:

@@ -75,27 +75,3 @@ python compute_psnr_ssim.py Set12_gaussian25_N2F Set12
 ```
 
 You can replace 'Set12' and 'Set12_gaussian25' with any pair of denoised/ground truth folders (order doesn't matter). Average PSNR and SSIM will be returned for the entire set.
-  
-
-  
-# Running compared methods
-
-We can run DIP, Noise2Self and Ne2Ne in the N2F environment:
-
-```python
-conda activate N2F
-python DIP.py Confocal_gaussianpoisson
-python noise2self.py Confocal_gaussianpoisson
-python Ne2Ne.py Confocal_gaussianpoisson
-```
-
-However Self2Self is tensorflow based and requires us to install more conda packages to work:
-
-```python
-conda activate N2F
-conda install -c conda-forge tensorflow=1.14.0
-conda install -c conda-forge opencv=4.5.1
-conda install -c anaconda keras=2.3.1
-python S2S.py Confocal_gaussianpoisson
-```
-

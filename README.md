@@ -10,8 +10,8 @@ Open Anaconda Prompt (or terminal if on Mac/Linux) and enter the following comma
 ```python
 conda create --name N2F
 conda activate N2F
-conda install -c pytorch pytorch=1.8.0
-conda install -c conda-forge tifffile=2019.7.26.2
+conda install -c pytorch pytorch
+conda install -c conda-forge tifffile
 ```
 If the installs don't work, removing the specific version may fix this.
 # Using Noise2Fast on your 2D grayscale data

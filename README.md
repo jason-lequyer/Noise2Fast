@@ -3,9 +3,7 @@
 # Installation
 If you don't already have anaconda, install it by following instructions at this link: https://docs.anaconda.com/anaconda/install/.
 
-It would also be helpful to have ImageJ installed: https://imagej.nih.gov/ij/download.html.
-
-Note: Issues may arise if using an image format that is not supported by the tifffile python package, to fix these issues you can open your images in ImageJ and re-save them as .tif (even if they were already .tif).
+It would also be helpful to have ImageJ installed: https://imagej.nih.gov/ij/download.html, because issues can arise when using an image format that is not supported by the tifffile python package, these issues can be fixed by opening your images in ImageJ and re-saving them as .tif (even if they were already .tif).
 
 Open Anaconda Prompt (or terminal if on Mac/Linux) and enter the following commands to create a new conda environment and install the required packages:
 

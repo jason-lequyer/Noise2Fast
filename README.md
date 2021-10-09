@@ -23,7 +23,7 @@ cd <masterdirectoryname>
 conda activate N2F
 python N2F.py <noisyfolder>
 ```
-Replacing <masterdirectoryname> with the full path to the directory that contains N2F.py, and replacing <noisyfolder> with the name of the folder containing images you want denoised. Results will be saved to the directory '<noisyolder>_N2F'.
+Replacing "<masterdirectoryname>" with the full path to the directory that contains N2F.py, and replacing "<noisyfolder>" with the name of the folder containing images you want denoised. Results will be saved to the directory '<noisyolder>_N2F'.
   
 # Using Noise2Fast on your colour images, stacks and hyperstacks
 

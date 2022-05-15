@@ -89,13 +89,3 @@ python noise2self.py Confocal_gaussianpoisson
 python Ne2Ne.py Confocal_gaussianpoisson
 ```
 
-However Self2Self is tensorflow based and requires us to install more conda packages to work:
-
-```python
-conda activate N2F
-conda install -c conda-forge tensorflow=1.14.0
-conda install -c conda-forge opencv=4.5.1
-conda install -c anaconda keras=2.3.1
-python S2S.py Confocal_gaussianpoisson
-```
-

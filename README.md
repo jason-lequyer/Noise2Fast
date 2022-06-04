@@ -85,7 +85,7 @@ We can run DIP, Noise2Self and Ne2Ne in the N2F environment:
 ```python
 conda activate N2F
 python DIP.py Confocal_gaussianpoisson
-python noise2self.py Confocal_gaussianpoisson
+python N2S.py Confocal_gaussianpoisson
 python Ne2Ne.py Confocal_gaussianpoisson
 ```
 

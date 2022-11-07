@@ -1,4 +1,7 @@
 # Noise2Fast
+Modern denoisers are typically trained on a representative dataset, sometimes consisting of just unpaired noisy shots. However, when data are acquired in real time to track dynamic cellular processes, it is not always practical nor economical to generate these training sets. Recently blind zero-shot denoisers have emerged that allow us to denoise single images without a training set or knowledge about the underlying noise. But such methods are currently too slow to be integrated into imaging pipelines that require rapid, real-time hardware feedback. Here we present Noise2Fast, which can overcome these limitations. Noise2Fast uses a novel downsampling technique we refer to as ‘chequerboard downsampling’. This allows us to train on a discrete 4-image training set, while convergence can be monitored using the original noisy image. Noise2Fast is faster than all similar methods with only a small drop in accuracy compared to the gold standard. 
+
+In other words Noise2Fast denoises single noisy images without any knowledge of the underlying noise distribution and without sensitive hyperparameters that need to be adjusted on a case-by-case basis. It starts with randonly initialized weights, and everything it learns about the universe comes solely from the noisy image you feed it. Once it's denoised that image, weights get randomly initialized again and it starts the process anew on the next image.
 
 # Installation
 If you don't already have anaconda, install it by following instructions at this link: https://docs.anaconda.com/anaconda/install/.

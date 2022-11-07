@@ -91,4 +91,7 @@ python DIP.py Confocal_gaussianpoisson
 python N2S.py Confocal_gaussianpoisson
 python Ne2Ne.py Confocal_gaussianpoisson
 ```
+ 
+# Citing this work
+Please cite this as: Lequyer, J., Philip, R., Sharma, A. et al. A fast blind zero-shot denoiser. Nat Mach Intell (2022). https://doi.org/10.1038/s42256-022-00547-8
 

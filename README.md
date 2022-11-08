@@ -1,7 +1,7 @@
 # Noise2Fast
 Modern denoisers are typically trained on a representative dataset, sometimes consisting of just unpaired noisy shots. However, when data are acquired in real time to track dynamic cellular processes, it is not always practical nor economical to generate these training sets. Recently blind zero-shot denoisers have emerged that allow us to denoise single images without a training set or knowledge about the underlying noise. But such methods are currently too slow to be integrated into imaging pipelines that require rapid, real-time hardware feedback. Here we present Noise2Fast, which can overcome these limitations. Noise2Fast uses a novel downsampling technique we refer to as ‘chequerboard downsampling’. This allows us to train on a discrete 4-image training set, while convergence can be monitored using the original noisy image. Noise2Fast is faster than all similar methods with only a small drop in accuracy compared to the gold standard. 
 
-In other words Noise2Fast denoises single noisy images without any knowledge of the underlying noise distribution and without sensitive hyperparameters that need to be adjusted on a case-by-case basis. It starts with randonly initialized weights, and everything it knows about the universe comes solely from the noisy image you feed it. Once it has denoised that image, weights get randomly initialized again and it starts the process anew on the next image.
+In other words Noise2Fast denoises single noisy images without any knowledge of the underlying noise distribution and without sensitive hyperparameters that need to be adjusted on a case-by-case basis (except learning rate in certain cases). It starts with randonly initialized weights, and everything it knows about the universe comes solely from the noisy image you feed it. Once it has denoised that image, weights get randomly initialized again and it starts the process anew on the next image.
 
 # Installation
 If you don't already have anaconda, install it by following instructions at this link: https://docs.anaconda.com/anaconda/install/.
@@ -27,6 +27,8 @@ conda activate N2F
 python N2F.py <noisyfolder>
 ```
 Replacing "masterdirectoryname" with the full path to the directory that contains N2F.py, and replacing "noisyfolder" with the name of the folder containing images you want denoised. Results will be saved to the directory '<noisyolder>_N2F'. Issues may arise if using an image format that is not supported by the tifffile python package, to fix these issues you can open your images in ImageJ and re-save them as .tif (even if they were already .tif, this will convert them to ImageJ .tif).
+  
+If you are using very low signal images N2F may output featurless rectangles, lowering the learning rate may fix this (open the script 'N2F.py' and CTRL+F for lr=, then change this value to e.g. 0.00001).
   
 # Using Noise2Fast on your colour images, stacks and hyperstacks
 
@@ -61,6 +63,8 @@ This will create the folder 'Set12_gaussian25' which we can now denoise:
 python N2F.py Set12_gaussian25
 ```
 Which returns the denoised results in a folder named 'Set12_gaussian25_N2F'.
+  
+If you are using very low signal images N2F may output featurless rectangles, lowering the learning rate may fix this (open the script 'N2F.py' and CTRL+F for lr=, then change this value to e.g. 0.00001).
 
 # Calculate accuracy of Noise2Fast
 

@@ -1,7 +1,6 @@
 import sys
 sys.path.append("..")
 import numpy as np
-from skimage.measure import compare_psnr
 import os
 import torch
 from tifffile import imread, imwrite

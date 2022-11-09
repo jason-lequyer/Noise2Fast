@@ -156,7 +156,6 @@ if __name__ == "__main__":
             optimizer.step()
             
             if i % 100 == 0:
-                print(i)
                 
                 losses.append(loss.item())
                 model.eval()

@@ -142,7 +142,7 @@ if __name__ == "__main__":
         best_images = []
         best_val_loss = np.inf
         
-        for i in range(4000):
+        for i in range(20000):
             model.train()
             
             net_input, mask = masker.mask(noisy, i % (masker.n_masks - 1))

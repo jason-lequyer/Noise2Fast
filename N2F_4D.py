@@ -214,4 +214,7 @@ if __name__ == "__main__":
             print("--- %s seconds ---" % (time.time() - start_time))
             start_time = time.time()
         out = out.reshape(ogshape)
-        imwrite(outfolder + '/' + file_name, out.astype(typer), imagej=True)
+        try:
+            imwrite(outfolder + '/' + file_name, out.astype(typer), imagej=True)
+        except:
+            imwrite(outfolder + '/' + file_name, out.astype(np.float32), imagej=True)

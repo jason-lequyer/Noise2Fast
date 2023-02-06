@@ -215,6 +215,6 @@ if __name__ == "__main__":
             start_time = time.time()
         out = out.reshape(ogshape)
         try:
-            imwrite(outfolder + '/' + file_name, out.astype(typer), imagej=True)
+            imwrite(outfolder + '/' + file_name, np.round(out).astype(typer), imagej=True)
         except:
-            imwrite(outfolder + '/' + file_name, out.astype(np.float32), imagej=True)
+            imwrite(outfolder + '/' + file_name, np.round(out).astype(np.float32), imagej=True)

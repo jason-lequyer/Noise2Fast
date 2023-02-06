@@ -197,7 +197,7 @@ if __name__ == "__main__":
         
         H = np.mean(last10, axis=0)
         
-        imwrite(outfolder + '/' + file_name, H.astype(typer))
+        imwrite(outfolder + '/' + file_name, np.round(H).astype(typer))
         print("--- %s seconds ---" % (time.time() - start_time))
         start_time = time.time()
         

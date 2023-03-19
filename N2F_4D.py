@@ -18,7 +18,7 @@ import time
 if __name__ == "__main__":
 
     tsince = 100
-    folder = sys.argv[1]
+    folder = 'reuben'
     outfolder = folder+'_N2F'
     Path(outfolder).mkdir(exist_ok=True)
         
@@ -225,10 +225,10 @@ if __name__ == "__main__":
                     notdone = False
                     print("--- %s seconds ---" % (time.time() - start_time))
                     start_time = time.time()
-            out = out.reshape(ogshape)
-                
-                
-            try:
-                imwrite(outfolder + '/' + file_name, np.round(out).astype(typer), imagej=True)
-            except:
-                imwrite(outfolder + '/' + file_name, np.round(out).astype(np.float32), imagej=True)
+        out = out.reshape(ogshape)
+            
+            
+        try:
+            imwrite(outfolder + '/' + file_name, np.round(out).astype(typer), imagej=True)
+        except:
+            imwrite(outfolder + '/' + file_name, np.round(out).astype(np.float32), imagej=True)

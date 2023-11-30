@@ -18,7 +18,7 @@ import time
 if __name__ == "__main__":
 
     tsince = 100
-    folder = 'reuben'
+    folder = sys.argv[1]
     outfolder = folder+'_N2F'
     Path(outfolder).mkdir(exist_ok=True)
         

@@ -54,7 +54,7 @@ if __name__ == "__main__":
             x2 = self.conv2(x1)
             x3 = self.conv3(x2)
             x = self.conv4(x3)
-            x = torch.sigmoid(self.conv6(x))
+            x = self.conv6(x)
             return x
         
         
@@ -87,9 +87,16 @@ if __name__ == "__main__":
             while notdone:
                 img = inp[oz,:,:]
                 typer = type(inp[0,0,0])
-                minner = np.amin(img)
+                minner = np.mean(img)
                 img = img - minner
-                maxer = np.amax(img)
+                maxer = np.std(img)
+                if maxer == 0:
+                    goodo = False
+                    notdone = False
+                    H2 = img + minner
+                    out[oz,:,:] = H2
+                    continue
+                
                 img = img/maxer
                 img = img.astype(np.float32)
                 shape = img.shape
@@ -169,7 +176,7 @@ if __name__ == "__main__":
                 
                 net = Net()
                 net.to(device)
-                criterion = nn.BCELoss()
+                criterion = nn.MSELoss()
                 optimizer = optim.Adam(net.parameters(), lr=learning_rate)
                 
                 
